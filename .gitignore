@@ -5,3 +5,4 @@ scratch/*
 examples/*
 examples/*.html
 notebooks/*.html
+scripts/*.html
