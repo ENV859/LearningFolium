@@ -119,6 +119,7 @@ http://localhost:8888/notebooks/notebooks/01_Quickstart.ipynb#Markers
   *  Set its icon to be a green star
 
 
+#### Etc., etc., etc...
 
 You're starting to get the idea of how to learn to construct maps using Folium. We look at examples, modify a few things and learn what properties do what. As the examples get more complex, however, you might feel hungry for more documentation or at least a better explanation of what some of the newer concepts are. What is "GeoJSON"? What is a tileset? 
 
@@ -143,8 +144,35 @@ JavaScript is, among other things, a scripting language that web browsers are pr
 
 So… JavaScript is a programming language that can be invoked in any standard web browser. JavaScript includes all the elements of any scripting language: variables (and data types), loops, and conditional statements. And also like other scripting languages, JavaScript can be extended by importing libraries, or bits of code that define functions and classes (and the properties and methods of these classes). 
 
+```
+A good source for learning more about JavaScript and HTML is https://www.w3schools.com/ 
+```
+
+
+
 #### Getting back to Leaflet.js
 
-Leaflet.js, then, is one particular JavaScript library; it adds a number of mapping functions and classes which combine to enable us to add and manipulate maps in web pages. It's not the only JavaScript mapping library; others include Google Maps and Microsoft Bing Maps. However, Leaflet is rapidly becoming the de facto library because of its speed, small footprint, and [relative] ease of use. 
+**Leaflet.js**, then, is one particular JavaScript library; it adds a number of mapping functions and classes which combine to enable us to add and manipulate maps in web pages. It's not the only JavaScript mapping library; others include Google Maps and Microsoft Bing Maps. However, Leaflet is rapidly becoming the de facto library because of its speed, small footprint, and [relative] ease of use. 
 
-Leaflet (and most other JavaScript libraries) are accessed through their API, or Application Programming Interface. http://leafletjs.com/reference.html. The API reveals the programming classes and functions contained in the library. We'll dig deeper into these items in a later tutorial, but first, let's quickly preview of what a very simple Leaflet web document looks like:
+Leaflet (and most other JavaScript libraries) are accessed through their API, or Application Programming Interface: http://leafletjs.com/reference.html .The API reveals the programming classes and functions contained in the library. We'll dig deeper into these items in a later tutorial, but first, let's quickly preview of what a very simple Leaflet web document looks like:
+
+1.	Open this link: http://leafletjs.com/examples/quick-start/example.html
+  This is taken from the Leaflet quickstart (http://leafletjs.com/examples/quick-start/).  You'll see that it contains all those things that we controlled via Folium – and more.
+2.	Now view code behind this web page by hitting ctrl-U with the web page active. 
+  You'll see it's just text. This text includes some HTML and some JavaScript, all of which combines to produce the interactive web page that hosts the map. 
+
+The text behind the web page likely seems a bit mysterious and confusing if you've never seen raw HTML before, but actually its highly structured and somewhat easy to pick out important bits if you know where to look. Briefly, the HTML document is split into a head and body. The head (lines 3-17) contains meta information about the document, including where modules get imported. You can see where Leaflet is imported in line 13. And the body contains instructions on how the page should be displayed: what programming elements should appear and where as well as the behaviors associated with them. In this quick start example, there's one html object explicitly added to the page: the `<div>` object created in line 22. (A `<div>` object defines a section in a web page.) However, just after this `<div>`object is added a snipped of JavaScript is run (lines 23-62). And in this JavaScript, a Leaflet map is created and set to appear within the`<div>` object (line 25). The JavaScript also adds a number of items to our map (lines 27 – 51), and sets a function that listens for the user to click on the map and show the coordinates where he/she clicked (lines 53-58).
+
+Ok, that still may be a bit confusing, but it you just take away that (1) the HTML file is just a text file, and (2) that the text in the file is simply either HTML or JavaScript instruction on how to display and allow interaction with various objects in web browser, you can get a much better idea of what Folium does…
+
+#### Getting back to Folium…
+
+Really all that Folium is doing is taking our instructions, written in Python, and translating those instructions to HTML and JavaScript and writing them to a text file with an HTML extension. (This is also how R's leaflet library works too, by the way…). In fact, you can open the html files you saved in the exercises above in a text editor and see some similarities, though the HTML documents Folium creates aren't as tidy as our quick start example. 
+
+#### So why is it important to know all this? 
+
+Admittedly, the Folium module is nicely written and allows us to make web maps far more easily (leveraging our knowledge of Python) than having to learn the entire Leaflet or Google Maps API. But, if we limit our knowledge to just what Folium can do (and further by what the documentation explains), we are missing out on some powerful web mapping capabilities. Additionally, understanding the mechanism of how Folium works in terms of the HTML and JavaScript it creates both facilitates debugging and enables us to adapt quickly to future changes to the API. 
+
+#### Where to go from here? 
+
+Here, we will continue to work through Folium examples and learn more about constructing maps using Python and Folium. Next up we will look more at the JavaScript APIs that enable us to publish, view, and interact with spatial data via the internet. 
