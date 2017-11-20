@@ -158,7 +158,7 @@ Leaflet (and most other JavaScript libraries) are accessed through their API, or
 
 1.	Open this link: http://leafletjs.com/examples/quick-start/example.html
   This is taken from the Leaflet quickstart (http://leafletjs.com/examples/quick-start/).  You'll see that it contains all those things that we controlled via Folium – and more.
-2.	Now view code behind this web page by hitting ctrl-U with the web page active. 
+  2.Now view code behind this web page by hitting ctrl-U with the web page active. 
   You'll see it's just text. This text includes some HTML and some JavaScript, all of which combines to produce the interactive web page that hosts the map. 
 
 The text behind the web page likely seems a bit mysterious and confusing if you've never seen raw HTML before, but actually its highly structured and somewhat easy to pick out important bits if you know where to look. Briefly, the HTML document is split into a head and body. The head (lines 3-17) contains meta information about the document, including where modules get imported. You can see where Leaflet is imported in line 13. And the body contains instructions on how the page should be displayed: what programming elements should appear and where as well as the behaviors associated with them. In this quick start example, there's one html object explicitly added to the page: the `<div>` object created in line 22. (A `<div>` object defines a section in a web page.) However, just after this `<div>`object is added a snipped of JavaScript is run (lines 23-62). And in this JavaScript, a Leaflet map is created and set to appear within the`<div>` object (line 25). The JavaScript also adds a number of items to our map (lines 27 – 51), and sets a function that listens for the user to click on the map and show the coordinates where he/she clicked (lines 53-58).
@@ -176,3 +176,15 @@ Admittedly, the Folium module is nicely written and allows us to make web maps f
 #### Where to go from here? 
 
 Here, we will continue to work through Folium examples and learn more about constructing maps using Python and Folium. Next up we will look more at the JavaScript APIs that enable us to publish, view, and interact with spatial data via the internet. 
+
+
+
+## The bigger picture
+
+We’ve glossed over a lot here and without too much depth. (Leaflet is capable of a lot more than we've toyed with!) However, if you pause and contemplate what's behind what we’ve done, you should see some interesting patterns. In particular, <u>the heavy use of text in all facets of web mapping</u>: in the Python/Folium code, in data formats that are used in creating geographic features (e.g. markers and JSON), and in the HTML/JavaScript page that is loaded into a browser to create your beautiful interactive map. 
+
+Why is this worth mentioning? Two reasons. First, while binary data (stuff that appears as garbage if try to open it in Notepad++) is much more efficient for machines to manipulate, binary data is, well, cryptic; the format of binary files must match the processor type of specific machines (e.g. Apple vs PC). Text files, on the other hand are "platform agnostic". Not only can all machines read text, but we humans can "read" it too. That means, while GeoJSON objects are written with a specific design in mind, we can access specific bits of a GeoJSON quite easily and manipulate it for a different use without too much overhead. For example, imagine a Python script to extract all the coordinate pairs in a GeoJSON file versus a similar script that extracts coordinates from a binary shapefile…
+
+The second reason why the prevalence of text is interesting is we can read and write text quite easily in Python. In fact, as we’ve mentioned, all the Folium module does is translate Python instructions (in text) into JavaScript instructions (in text). If you extend that further, you can see how converting a shapefile to GeoJSON format is fairly straightforward using ArcPy cursors (if you know the GeoJSON format). Or, constructing a set of Markers from a file of XY coordinates is also a matter of Python’s read statement and a loop to format the data from the input file to the GeoJSON output format. 
+
+So, while there are a LOT of additional details to iron out to make maps appear exactly how you want, it’s within your grasp to do so. It's not some form of coding voodoo; it's understanding what objects and features are available to control and learning the commands how to control them. 
