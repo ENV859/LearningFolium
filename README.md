@@ -6,48 +6,93 @@ Date: Fall 2107
 
 # Getting Started With Folium
 
-### Introduction
+## Introduction
 
-In previous years, I would spend several lectures on how to construct a web page with a Google Map embedded in it. It required learning a bit of HTML and JavaScript. The documentation from Google Was good, but it still required a lot of background to learn just to get a map of a set of points to appear. 
-Much has changed in the last year. Now we have R libraries and Python modules that essentially write the HTML and JavaScript code for you from our more familiar coding platforms. Last week, Matt shows us a quick overview of how the Leaflet library in R can quickly – really quickly – generate a map showing our vector or raster data. 
+In previous years, I would spend several lectures on how to construct a web page with a Google Map embedded in it. It required learning a bit of HTML and JavaScript. The documentation from Google Was good, but it still required a bit of a learning investment just to get a map of a set of points to appear. 
 
-Today, we return to Python and explore, a bit more slowly and deliberately, how similar maps can be made in that language. The Python module we will use is called Folium which works quite the same as the R Leaflet library. We'll explore how the Folium module (and how most 3rd party modules) are installed in Python, 
+Since then, coders have developed some nifty Python (and R) packages that alleviate the need to learn JavaScript and HTML. These packages essentially write the HTML and embedded JavaScript for you from our familiar Python platform. In this lesson we explore one of these packages - **Folium** - using it to quickly construct some handy web-based maps. 
 
 The goals in this tutorial are many fold. We will, of course, learn how to generate web-enabled maps using the Folium module, but this will also be an opportunity to examine how and where 3rd party Python plugins get installed. We'll also examine how Folium works in terms of generating HTML, JavaScript code, and the Leaflet JavaScript API as this will enable us to get past limitations the Folium module has. 
 
-## 1. Installing the Folium module for Python
+## ♦ Installing the Folium module for Python
 
-Folium can be installed with `pip`:
+Before we move forward, we need to be sure Folium is installed on our machine. Folium can be installed the usual way with `pip`:
 
-```DOS
-pip install folium
+```dos
+C:\Python27\ArcGIS10.5\scripts\pip install folium
 ```
 
-## 2. Getting Started With Folium: Diving In
 
-Now we'll focus on generating some quick maps with Folium.  
-Folium, like most modules these days, is in a state of constant development and is therefore housed on GitHub: https://github.com/python-visualization/folium. Navigate to that site and you'll see some documentation; scroll down to the **Getting Started** section and let's get started! 
 
-You'll see a number of code snippets to experiment with. We'll play around with these to get a feel for what Leaflet can do. Create a folder on your V: drive called **Folium** and then create a new empty Python script file. Open that up in PythonWin and then you can copy and paste these snippets from the Folium web page to your Python script and run them. 
+## ♦ Introduction to creating web-based maps
 
-Below are the concepts you should become familiar with after running through these snippets:
+In the `DemoScripts` folder within this workspace are a set of Python scripts that create web maps. Navigate to the `1_CSVtoHTMLwithPython` folder and you'll see two scripts that do the same thing: create web map showing the point listed in the `Pennsylvania Oil and Gas Violations.csv` file. Our first exercise will quickly explore these two scripts. 
 
-#### Creating a **map object** centered on a specific location
 
-* Try centering the map on the Duke Campus: : (36.0010, -78.9400)
+1. Navigate to the `DemoScripts/1_CSVtoHTMLwithPython` folder
+2. Open the `Pennsylvania Oil and Gas Violations.csv`
+3. Run the `1CreateHTMLFromCSV_GoogleAPI.py1` script. An HTML file is created. 
+4. Open the `Violations_Google.html` file in your browser: You see the violation points!
+5. Do the same for the `CreateHTMLFromCSV_Folium.py` script and open the resulting HTML file. 
 
-#### Changing the **base map** and **zoom** level:
 
-* Try changing the basemap to "stamen terrain" with a zoom of 15
-* Try "mapbox control room" with a zoom of 4
+These two Python scripts use two separate web-mapping platforms. The first uses the [Google Maps API](https://developers.google.com/maps/) and the second uses the [Leaflet API](http://leafletjs.com/). Both of these are JavaScript based APIs which are "activated" by our Python scripts. 
 
-#### Changing the base map to use one of leaflet's standard tilesets:
+Have a look at each script and see whether you can get a rough idea how each work. Briefly, the Google script simply writes raw HTML and JavaScript from Python. The Folium one does as well, but it does so more "programmatically" via the `Folium` package. 
 
-(https://leaflet-extras.github.io/leaflet-providers/preview/). 
+Also, open the HTML files in a text editor and see what you can glean about how these work. 
 
-* Open the providers link above and preview `OpenStreetMap BlackAndWhite`
-* Copy the link shown in red next to `tileLayer`
-* Set that as the `tile` value and set an `attr` value
+We will discuss each in class, but the overall mechanism going on here is the underlying focus of todays lesson... 
+
+
+
+## ♦  Getting Started With Folium: Diving In
+
+*Ok, let's  focus on generating some quick maps with Folium. We'll do so by exploring the Folium GitHub site and its documentation, and by tweaking some of the example notebooks it provides.* 
+
+Folium, like most modules these days, is in a state of constant development and is therefore housed on GitHub: https://github.com/python-visualization/folium . Navigate to that site and you'll a link to some documentation: http://python-visualization.github.io/folium/docs-master/ . Scroll down to the **Quick Start** and you'll see an example notebook showing how easy it is to create a web map with Folium. 
+
+I've downloaded all the Folium example notebooks into the `examples.zip` file included in this workspace. Unzip this folder and then fire up Jupyter notebooks. We'll tinker with these examples, making changes and seeing how they manifest themselves in the resulting maps produced! (If you totally mess up a notebook, you can always pull the original out from the `example.zip` file...)
+
+**Alternatively**, I prefer to copy these snippets over to a Python script rather than working in a Jupyter notebook as notebooks with large embedded maps tend to get confusing. Either way, the journey to learning is roughly the same. 
+
+<u>Below are the concepts you should become familiar with after running through these snippets:</u><br>As you run these, try to gain understanding of the various Folium objects (e.g. the `map` object) are created and manipulated. 
+
+### Quickstart - Getting Started
+
+http://python-visualization.github.io/folium/docs-master/quickstart.html
+
+##### ◘ Creating a <u>map object</u> <u>centered</u> on a specific location:
+
+* Open the `01_Quickstart` notebook and run it. (or copy the code to a new Python script...)
+* Try recoding the notebook so that it produces at map centered on the Nicholas School: <br>
+  (36.0010, -78.9400)
+* Modify the `save` function to your notebook to save the map as `myMap.html`. Then open the HTML document in your browser. 
+
+##### ◘ Changing the <u>base map</u> and <u>zoom</u> level:
+
+* Try changing the basemap to `Stamen Terrain` with a zoom of `15`
+
+* Try `Mapbox Control Room` with a zoom of 4
+
+  * *Seems you need to sign up for an API to use this base map...*
+
+  ```
+  You can use Jupyter's functionality to reveal what other attributes of the map document can be changed and refer to the documentation to better understand what these options are. 
+  ```
+
+##### ◘ Changing the base map to use one of Leaflet's standard *tilesets* :
+
+What is a *tileset*? 
+
+What is *Leaflet*??
+
+*Seems we dove in a bit too fast. Let's pause, step back, and get a broader understanding of what Folium is and how this stuff is working. Folium is essentially a Python "wrapper" for the Leaflet API, meaning Folium allows us to write Python scripts that construct web pages that use Leaflet to display maps. "Tilesets" are Leaflet constructs that allow 3rd (or 4th?) party coders to generate their own base maps.* 
+
+A gallery of Leaflet tilesets is provided here: <br>
+https://leaflet-extras.github.io/leaflet-providers/preview/
+
+Looking at the QuickStart example, we get an idea of how a Leaflet tileset is used in a Folium script.
 
 ```javascript
 myTileset=r'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png'
@@ -60,12 +105,24 @@ map_osm = folium.Map(location=[36.0010,-78.9400],
 map_osm.save('osm.html')
 ```
 
+Let's try change this:
+
+(https://leaflet-extras.github.io/leaflet-providers/preview/). 
+
+- Open the providers link above and preview `OpenStreetMap BlackAndWhite`
+- Copy the link shown in red next to `tileLayer`
+- Set that as the `tile` value and set an `attr` value
+
+### Markers
+
+http://localhost:8888/notebooks/notebooks/01_Quickstart.ipynb#Markers
+
 #### Adding simple **markers**
 
 * Add a simple marker to your Duke campus map
   *  Set its location to (36.0055, -78.9420)
-  * Add a popup that says Environment Hall
-  * Set its icon to be a green star
+  *  Add a popup that says Environment Hall
+  *  Set its icon to be a green star
 
 You're starting to get the idea of how to learn to construct maps using Folium. We look at examples, modify a few things and learn what properties do what. As the examples get more complex, however, you might feel hungry for more documentation or at least a better explanation of what some of the newer concepts are. What is "GeoJSON"? What is a tileset? 
 
