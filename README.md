@@ -6,13 +6,15 @@ Date: Fall 2107
 
 # Getting Started With Folium
 
-## Introduction
+## ♦ Introduction
 
 In previous years, I would spend several lectures on how to construct a web page with a Google Map embedded in it. It required learning a bit of HTML and JavaScript. The documentation from Google Was good, but it still required a bit of a learning investment just to get a map of a set of points to appear. 
 
 Since then, coders have developed some nifty Python (and R) packages that alleviate the need to learn JavaScript and HTML. These packages essentially write the HTML and embedded JavaScript for you from our familiar Python platform. In this lesson we explore one of these packages - **Folium** - using it to quickly construct some handy web-based maps. 
 
 The goals in this tutorial are many fold. We will, of course, learn how to generate web-enabled maps using the Folium module, but this will also be an opportunity to examine how and where 3rd party Python plugins get installed. We'll also examine how Folium works in terms of generating HTML, JavaScript code, and the Leaflet JavaScript API as this will enable us to get past limitations the Folium module has. 
+
+
 
 ## ♦ Installing the Folium module for Python
 
@@ -46,7 +48,7 @@ We will discuss each in class, but the overall mechanism going on here is the un
 
 
 
-## ♦  Getting Started With Folium: Diving In
+## ♦  Getting Started With *Folium*: Diving In
 
 *Ok, let's  focus on generating some quick maps with Folium. We'll do so by exploring the Folium GitHub site and its documentation, and by tweaking some of the example notebooks it provides.* 
 
@@ -54,11 +56,9 @@ Folium, like most modules these days, is in a state of constant development and 
 
 I've downloaded all the Folium example notebooks into the `examples.zip` file included in this workspace. Unzip this folder and then fire up Jupyter notebooks. We'll tinker with these examples, making changes and seeing how they manifest themselves in the resulting maps produced! (If you totally mess up a notebook, you can always pull the original out from the `example.zip` file...)
 
-**Alternatively**, I prefer to copy these snippets over to a Python script rather than working in a Jupyter notebook as notebooks with large embedded maps tend to get confusing. Either way, the journey to learning is roughly the same. 
+<u>Below are some concepts to become familiar with after running through some sectionsin the QuickStart.ipynb:</u><br>As you run these, try to gain understanding of the various Folium objects (e.g. the `map` object) are created and manipulated. 
 
-<u>Below are the concepts you should become familiar with after running through these snippets:</u><br>As you run these, try to gain understanding of the various Folium objects (e.g. the `map` object) are created and manipulated. 
-
-### Quickstart - Getting Started
+### Getting Started - the Map object
 
 http://python-visualization.github.io/folium/docs-master/quickstart.html
 
@@ -82,12 +82,6 @@ http://python-visualization.github.io/folium/docs-master/quickstart.html
   ```
 
 ##### ◘ Changing the base map to use one of Leaflet's standard *tilesets* :
-
-What is a *tileset*? 
-
-What is *Leaflet*??
-
-*Seems we dove in a bit too fast. Let's pause, step back, and get a broader understanding of what Folium is and how this stuff is working. Folium is essentially a Python "wrapper" for the Leaflet API, meaning Folium allows us to write Python scripts that construct web pages that use Leaflet to display maps. "Tilesets" are Leaflet constructs that allow 3rd (or 4th?) party coders to generate their own base maps.* 
 
 A gallery of Leaflet tilesets is provided here: <br>
 https://leaflet-extras.github.io/leaflet-providers/preview/
@@ -124,12 +118,16 @@ http://localhost:8888/notebooks/notebooks/01_Quickstart.ipynb#Markers
   *  Add a popup that says Environment Hall
   *  Set its icon to be a green star
 
+
+
 You're starting to get the idea of how to learn to construct maps using Folium. We look at examples, modify a few things and learn what properties do what. As the examples get more complex, however, you might feel hungry for more documentation or at least a better explanation of what some of the newer concepts are. What is "GeoJSON"? What is a tileset? 
 
 This situation, I'm afraid to say, is typical when you are working on the "bleeding edge" of technology. Coders are providing these nifty tools they’ve developed for free; what documentation they provide is often a bonus. We must bridge the gap of what documentation is provided and what we need to know through a combination of creativity, a broader understanding of how things work, and trial and error experience. 
 With that said, let's step back from what we accomplished from diving in to Folium and examine what, exactly, Folium is doing and how it's doing it. 
 
-## 3. What *is* Folium? (and Leaflet.js? and JavaScript?)
+
+
+## ♦ What *is* Folium? (and Leaflet.js? and JavaScript?)
 
 The Folium document explains what it does: 
 

@@ -3,3 +3,5 @@
 
 scratch/*
 examples/*
+examples/*.html
+notebooks/*.html
