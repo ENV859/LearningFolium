@@ -6,3 +6,5 @@ examples/*
 examples/*.html
 notebooks/*.html
 scripts/*.html
+
+Archive/*
