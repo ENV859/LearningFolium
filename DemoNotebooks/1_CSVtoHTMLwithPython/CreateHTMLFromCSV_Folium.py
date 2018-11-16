@@ -3,12 +3,16 @@
 # Creates a Google Maps HTML document containing
 # markers contained in the specified CSV file
 
-# Fall 2017
+# Fall 2018
 # J.Fay for ENV859
 
+import sys, os
 import pandas as pd
 import folium
 from folium.plugins import MarkerCluster
+
+#Set the working directory
+os.chdir(os.path.dirname(sys.path[-1])+'\\1_CSVtoHTMLwithPython')
 
 #Filename to save the output to:
 outputHTML = 'Violations_folium.html'
@@ -33,7 +37,7 @@ marker_cluster.add_to(wellMap)
 #Add as Clustered Markers
 for row in df.iterrows():
     #Print dots to show progress
-    print ".",
+    print ('.',end='')
 
     #Get the data from the row; it's the 2nd object (1st is the row's index)
     data = row[1] 
