@@ -1,10 +1,7 @@
 #Ignore Python notebook checkpoints
 */.ipynb_checkpoints/*
 
-scratch/*
-examples/*
+DemoNotebooks/*/*.html
+DemoNotebooks/*/
+examples/*/.ipynb_checkpoints/*
 examples/*.html
-notebooks/*.html
-scripts/*.html
-
-Archive/*
