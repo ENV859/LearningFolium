@@ -2,6 +2,7 @@
 */.ipynb_checkpoints/*
 
 DemoNotebooks/*/*.html
-DemoNotebooks/*/
-examples/*/.ipynb_checkpoints/*
-examples/*.html
+DemoNotebooks/*/.ipynb_checkpoints/*
+
+
+examples/*
