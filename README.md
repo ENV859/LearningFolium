@@ -33,17 +33,16 @@ In the **DemoScripts** folder within this workspace are a set of Jupyter noteboo
 
 
 
-1. Open Jupyter Notebooks (a shortcut using the "my_env" environment is included in the repo).
+* Navigate to `DemoScripts/1_CSVtoHTMLwithPython`  in Windows explorer.
+* Open the `Pennsylvania Oil and Gas Violations.csv` in a text editor or Excel and examine its contents.
 
-2. Navigate to `DemoScripts/1_CSVtoHTMLwithPython` .
 
-3. Open the `Pennsylvania Oil and Gas Violations.csv` in a text editor or Excel.
 
-4. Open the `CreateHTMLFromCSV_GoogleAPI.ipynb` notebook and run it. An HTML file is created. 
 
-5. Open the `Violations_Google.html` file in your browser: You see the violation points!
-
-6. Open and run the `CreateHTMLFromCSV_Folium.ipynb` notebook and open the resulting HTML file. 
+* Open Jupyter Notebooks (a shortcut using the "***my_env***" environment is included in the repo).
+* Open the `CreateHTMLFromCSV_GoogleAPI.ipynb` notebook and run it. An HTML file is created. 
+* Open the `Violations_Google.html` file in your browser: You see the violation points!
+* Open and run the `CreateHTMLFromCSV_Folium.ipynb` notebook and open the resulting HTML file. 
 
 
 
@@ -53,7 +52,7 @@ Have a look at each script and see whether you can get a rough idea how each wor
 
 Also, open the HTML files in a text editor and see what you can glean about how these work. 
 
-We will discuss each in class, but the overall mechanism going on here is the underlying focus of todays lesson... 
+→ We will discuss each in class, but the overall mechanism going on here is the underlying focus of todays lesson... 
 
 
 
@@ -61,26 +60,34 @@ We will discuss each in class, but the overall mechanism going on here is the un
 
 *Ok, let's  focus on how **Folium** does its magic. We'll do so by exploring the Folium GitHub site and its documentation, and by tweaking some of the example notebooks it provides.* 
 
-Folium, like most modules these days, is in a state of constant development and is therefore housed on **GitHub**: https://github.com/python-visualization/folium . Navigate to that site and you'll a link to some documentation: http://python-visualization.github.io/folium/docs-master/ . Scroll down to the **Quick Start** and you'll see an example notebook showing how easy it is to create a web map with Folium. 
+Folium, like most packages these days, is constantly evolving and is therefore housed on **GitHub**: https://github.com/python-visualization/folium . Navigate to that site and you'll a link to some documentation: http://python-visualization.github.io/folium/docs-master/ . Scroll down to the **Quick Start** and you'll see an example notebook showing how easy it is to create a web map with Folium. 
 
 I've downloaded all the Folium example notebooks into the `examples.zip` file included in this workspace. 
 
 * <u>Unzip this folder and then fire up Jupyter notebooks.</u> We'll tinker with these examples, making changes and seeing how they manifest themselves in the resulting maps produced! (If you totally mess up a notebook, you can always pull the original out from the `example.zip` file...)
-* <u>Start Jupyter Notebooks</u> (if needed), navigate to the Examples folder and <u>open the **QuickStart** notebook</u>. 
+* <u>Start Jupyter Notebooks</u> (if not already), navigate to the Examples folder, and <u>open the **QuickStart** notebook</u>. 
 
-> As we run through this and other examples in class, we'll run through our typical learning procedures: *What objects d**oes the Folium package bring to Python; what can we do with these objects; how do we get them to do what we want...*
+> As we run through this and other examples in class, we'll run through our typical learning procedures:
+>
+> *  *What objects does the Folium package bring to Python?*
+> * *What can we do with these objects?*
+> * *How do we code with these objects?*
 
 
 
-### Folium's *Map* object
+### Exercise 1: Folium's *Map* object
 
 http://python-visualization.github.io/folium/docs-master/quickstart.html
 
 #### 1. Creating a <u>map object</u> <u>centered</u> on a specific location:
 
-* Open the `Quickstart` notebook and run it.
-* Try recoding the notebook so that it produces at map centered on the Nicholas School:  `36.0010, -78.9400`
-* Modify the `save` function to your notebook to save the map as `myMap.html`. Then open the HTML document in your browser. 
+* Open the `Quickstart` notebook (in the examples folder) and run it.
+* Recoding the notebook so that it produces at map centered on the Nicholas School:  `36.0010, -78.9400`
+* Modify the `save` function to your notebook to save the map as `myMap.html`. 
+* Then open the `myMap.html` HTML document in your browser. 
+* Open the `myMap.html` in Notepad++...
+
+
 
 #### 2. Changing the <u>base map</u> and <u>zoom</u> level:
 
@@ -90,11 +97,13 @@ http://python-visualization.github.io/folium/docs-master/quickstart.html
 
   * *Seems you need to sign up for an API to use this base map...*
 
-You can use Jupyter's functionality to reveal what other attributes of the map document can be changed (`map?`) and refer to the [documentation on the map class](http://python-visualization.github.io/folium/docs-master/modules.html) to better understand what these options are. 
+You can use Jupyter's functionality to reveal what other attributes of the map document can be changed (`m?`) and refer to the [documentation on the map class](http://python-visualization.github.io/folium/docs-master/modules.html) to better understand what these options are. 
+
+
 
 #### 3. Changing the base map to use one of Leaflet's standard *tilesets*:
 
-A bit further down in the QuickStart notebook, you'll see a mention of "`leaflet.js` compatible tilesets" and then some code:
+Toward the bottom of the QuickStart notebook, it mentions "`leaflet.js` compatible tilesets" and then some code:
 
 ```
 folium.Map(location=[45.372, -121.6972],
@@ -107,7 +116,7 @@ A gallery of these Leaflet tilesets is provided here:
 https://leaflet-extras.github.io/leaflet-providers/preview/, and we'll try updating our map to use one of these. 
 
 * Copy and paste the above code into a new code cell. 
-* Open the [providers link](https://leaflet-extras.github.io/leaflet-providers/preview/) above and preview `OpenStreetMap BlackAndWhite` option
+* Open the [providers link](https://leaflet-extras.github.io/leaflet-providers/preview/) above and preview `OpenStreetMap BlackAndWhite` option
 * Copy the link shown in red next to `tileLayer` <font color='red' face='verdana'>https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png</font>
 * In your notebook, set that as the `tile` value and set the `attr` value to "OSM Black & White"
   * *Note, the `attr` value is arbitrary, but will appear on your map to indicate the source of the tileset*
@@ -124,7 +133,7 @@ folium.Map(location=[45.372, -121.6972],
 
 
 
-### Folium's *Markers* object
+### Exercise 2: Folium's *Markers* object
 
 At the bottom of the QuickStart notebook is a section on Markers. Run that code block
 
@@ -147,7 +156,7 @@ With that said, let's step back from what we accomplished from diving in to Foli
 
 ## ♦ What *is* Folium? (and Leaflet.js? and JavaScript?)
 
-The Folium document explains what it does: 
+The [Folium documentation](https://python-visualization.github.io/folium/#python-data-leaflet-js-maps) explains what it does: 
 
 > "Folium builds on the data wrangling strengths of the Python ecosystem and the mapping strengths of the **Leaflet.js library**. Manipulate your data in Python, then visualize it in on a Leaflet map via Folium."
 
@@ -155,17 +164,17 @@ The Folium document explains what it does:
 
 ### What is *Leaflet.js*?
 
-We are familiar with "the Python ecosystem", but perhaps not so much what the "**Leaflet.js library**" is. Briefly, **Leaflet.js** is a **JavaScript** library, that is, a plug in for yet another programming language – JavaScript. 
+We are familiar with "the Python ecosystem", but perhaps not so much what the "**Leaflet.js library**" is. Briefly, **[Leaflet.js](https://leafletjs.com/)** is a **JavaScript** library, that is, a plug in for yet another programming language – JavaScript. 
 
 
 
 ### What is *JavaScript*? 
 
-**JavaScript** is, among other things, a scripting language that web browsers are programmed to read and run. You may have heard of HTML, or Hyper Text Markup Language, and understood that to be the language of web browsers; and that's true, but HTML is only good at displaying static information. If you want dynamic content or any sort of interactivity on your web site, you also need a programming language, which is often JavaScript. 
+[**JavaScript**](https://www.javascript.com/) is, among other things, a scripting language that web browsers are programmed to read and run. You may have heard of HTML, or Hyper Text Markup Language, and understood that to be the language of web browsers; and that's true, but HTML is only good at displaying static information. If you want dynamic content or any sort of interactivity on your web site, you also need a programming language, which is often JavaScript. 
 
-So… JavaScript is a programming language that can be invoked in any standard web browser. JavaScript includes all the elements of any scripting language: variables (and data types), loops, and conditional statements. And also like other scripting languages, JavaScript can be extended by importing libraries, or bits of code that define functions and classes (and the properties and methods of these classes). 
+So… <u>JavaScript is a programming language that can be invoked in any standard web browser</u>. JavaScript includes all the elements of any scripting language: variables (and data types), loops, and conditional statements. And also like other scripting languages, JavaScript can be extended by importing libraries, or bits of code that define functions and classes (and the properties and methods of these classes). 
 
-►<font color='blue'>A good source for learning more about JavaScript and HTML is https://www.w3schools.com/ </font>
+►<font color='blue'>A good source for learning more about JavaScript and HTML is https://www.w3schools.com/js </font>
 
 
 
@@ -187,13 +196,19 @@ The text behind the web page likely seems a bit mysterious and confusing if you'
 
 Ok, that still may be a bit confusing, but it you just take away that (1) the HTML file is just a text file, and (2) that the text in the file is simply either HTML or JavaScript instruction on how to display and allow interaction with various objects in web browser, you can get a much better idea of what Folium does…
 
+
+
 ### Getting back to *Folium*…
 
 Really all that Folium is doing is taking our instructions, written in Python, and translating those instructions to HTML and JavaScript and writing them to a text file with an HTML extension. (This is also how R's leaflet library works too, by the way…). In fact, you can open the html files you saved in the exercises above in a text editor and see some similarities, though the HTML documents Folium creates aren't as tidy as our quick start example. 
 
+
+
 ### *So why is it important to know all this?* 
 
 Admittedly, the Folium module is nicely written and allows us to make web maps far more easily (leveraging our knowledge of Python) than having to learn the entire Leaflet or Google Maps API. But, if we limit our knowledge to just what Folium can do (and further by what the documentation explains), we are missing out on some powerful web mapping capabilities. Additionally, understanding the mechanism of how Folium works in terms of the HTML and JavaScript it creates both facilitates debugging and enables us to adapt quickly to future changes to the API. 
+
+
 
 ### Where to go from here? 
 
